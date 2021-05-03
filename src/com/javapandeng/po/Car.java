@@ -7,6 +7,9 @@ import java.io.Serializable;
  */
 public class Car implements Serializable {
 
+    /**
+     * 购物车id
+     */
     private Integer id;
     /**
      * 商品id

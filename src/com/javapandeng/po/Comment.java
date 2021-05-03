@@ -8,12 +8,24 @@ import java.util.Date;
  */
 public class Comment implements Serializable {
 
+    /**
+     * 评论id
+     */
     private Integer id;
 
+    /**
+     * 用户id
+     */
     private Integer userId;
 
+    /**
+     * 用户对象
+     */
     private User user;
 
+    /**
+     * 商品id
+     */
     private Integer itemId;
 
     /**
