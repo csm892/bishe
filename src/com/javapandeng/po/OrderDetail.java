@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  *
  * 商品详情
- * 注重订单
+ * 注重订单，相当于中间表
  */
 public class OrderDetail implements Serializable {
     /**

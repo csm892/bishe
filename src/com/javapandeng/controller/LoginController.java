@@ -93,11 +93,13 @@ public class LoginController extends BaseController {
         List<CategoryDto> list = new ArrayList<>();
         if(!CollectionUtils.isEmpty(fatherList)){
             for(ItemCategory ic:fatherList){
+
                 /**
                  *  CategoryDto
+                 *
                  *  private ItemCategory father;
                  *
-                 *    private List<ItemCategory> childrens;
+                 *  private List<ItemCategory> childrens;
                  */
                 CategoryDto dto = new CategoryDto();
                 dto.setFather(ic);
@@ -126,6 +128,8 @@ public class LoginController extends BaseController {
     public String res(){
         return "login/res";
     }
+
+
     /**执行普通用户注册*/
     @RequestMapping("/toRes")
     public String toRes(User u){

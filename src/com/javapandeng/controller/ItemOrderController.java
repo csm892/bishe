@@ -157,6 +157,7 @@ public class ItemOrderController extends BaseController {
         return js.toJSONString();
     }
 
+
     private static String date;
     private static long orderNum = 0L;
     //shezhi订单号

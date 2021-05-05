@@ -3,7 +3,7 @@ package com.javapandeng.po;
 import java.io.Serializable;
 
 /**
- * 类目
+ * 分级类目
  */
 public class ItemCategory implements Serializable {
 

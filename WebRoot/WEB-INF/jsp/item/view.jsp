@@ -38,10 +38,10 @@
             </div>
             <div id=spec-list" style="margin-top: 5px;">
                 <ul class="list-h">
-                    <li><img src="${obj.url2}" height="80" width="80"></li>
-                    <li><img src="${obj.url3}" height="80" width="80"></li>
+                    <!--<li><img src="${obj.url2}" height="80" width="80"></li>
+                   <li><img src="${obj.url3}" height="80" width="80"></li>
                     <li><img src="${obj.url4}" height="80" width="80"></li>
-                    <li><img src="${obj.url5}" height="80" width="80"></li>
+                    <li><img src="${obj.url5}" height="80" width="80"></li>-->
                 </ul>
             </div>
         </div>

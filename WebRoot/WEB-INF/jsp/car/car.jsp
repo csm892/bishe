@@ -86,7 +86,9 @@
     //给小计赋值
     (function cx() {
         for(var a=0;a<es;a++){
+            //价格
             var lt = $(".xzJg").eq(a).find("font").html();
+            //数量
             var num = $(".xzSl").eq(a).find("input").val();
             var xj = lt*num;
             $(".xzXj").eq(a).find("font").html(xj);

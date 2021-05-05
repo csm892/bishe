@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="label"><label>商品类别：</label></div>
+                <div class="label"><label>商品二级类别：</label></div>
                 <div class="field">
                     <select name="categoryIdTwo" class="input w50">
                         <c:forEach items="${types}" var="data" varStatus="l">

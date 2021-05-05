@@ -3,11 +3,18 @@ package com.javapandeng.po;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 留言
+ */
+
 public class Message implements Serializable {
 
+    /**
+     * 主键
+     */
     private Integer id;
     /**
-     *留言的 姓名
+     *留言的姓名
      */
     private  String name;
     /**

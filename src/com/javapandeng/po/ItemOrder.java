@@ -26,6 +26,9 @@ public class ItemOrder implements Serializable {
      */
     private Integer userId;
 
+    /**
+     * 用户对象
+     */
     private User user;
 
     /**
@@ -43,13 +46,19 @@ public class ItemOrder implements Serializable {
      */
     private String total;
 
+    /**
+     * 是否删除
+     */
     private Integer isDelete;
 
     /**
-     * 0.新建待发货1.已取消 2已发货3.到收货4已评价
+     * 0.新建待发货 1.已取消 2.已发货 3.到收货 4.已评价
      */
     private Integer status;
 
+    /**
+     *
+     */
     private List<OrderDetail> details;
 
     public ItemOrder(Integer id, Integer itemId, Integer userId, User user, String code, Date addTime, String total, Integer isDelete, Integer status) {

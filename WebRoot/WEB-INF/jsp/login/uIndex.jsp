@@ -22,13 +22,15 @@
             <span class="block_yh left_yh fff" style="height: 45px;line-height: 44px;margin-left: 10px;">分类</span>
             <!--导航展开部分-->
             <div class="downSlide">
+
                 <c:forEach items="${lbs}" var="data" varStatus="l">
+
                     <div class="n1Nav">
                         <font>${data.father.name}</font>
                         <img src="${ctx}/resource/user/images/jt.png" alt="">
                         <div class="n2Nav">
                             <div class="n3Nav">
-                                <h3>${data.father.name}</h3>
+
                                 <c:forEach items="${data.childrens}" var="child" varStatus="ll">
                                     <a href="${ctx}/item/shoplist?categoryIdTwo=${child.id}">${child.name}</a>
                                 </c:forEach>
@@ -51,14 +53,15 @@
     <div class="example2" style="width: 1200px;height: 490px;overflow: hidden;margin-left: 230px;">
         <ul>
             <li><img src="${ctx}/resource/images/a.webp" alt=""></li>
-            <li><img src="${ctx}/resource/images/b.webp" alt=""></li>
+            <li><img src="https://imgcps.jd.com/ling4/7125373/5Li65L2g5o6o6I2Q/57K-6YCJ5aW954mp/p-5bd8253082acdd181d02fa7f/9c79f419/cr/s/q.jpg" alt=""></li>
+            <li><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/175b22f0032803f8bdbd94590c8c6629.jpeg?thumb=1&w=1287&h=483&f=webp&q=90" alt=""></li>
             <li><img src="${ctx}/resource/images/c.webp" alt=""></li>
             <li><img src="${ctx}/resource/images/d.webp" alt=""></li>
         </ul>
     </div>
     <script>
         $(function () {
-            $(".example2").luara({width:"966",height:"490",interval:4500,selected:"seleted",deriction:"left"});
+            $(".example2").luara({width:"966",height:"490",interval:3000,selected:"seleted",deriction:"left"});
         });
     </script>
 </div>

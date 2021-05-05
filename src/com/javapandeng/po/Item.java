@@ -63,13 +63,20 @@ public class Item implements Serializable{
     private String url5;
 
     /**
-     * 描述
+     * 商品描述
      */
     private String ms;
 
+    /**
+     * 商品参数
+     */
     private String pam1;
     private String pam2;
     private String pam3;
+
+    /**
+     * 商品值，还未设置
+     */
     private String val1;
     private String val2;
     private String val3;

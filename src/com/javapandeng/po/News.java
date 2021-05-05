@@ -3,6 +3,10 @@ package com.javapandeng.po;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 公告
+ */
+
 public class News implements Serializable {
 
     private Integer id;

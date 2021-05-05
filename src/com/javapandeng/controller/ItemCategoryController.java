@@ -24,9 +24,10 @@ public class ItemCategoryController extends BaseController {
     public String findBySql(Model model, ItemCategory itemCategory){
         String sql = "select * from item_category where isDelete = 0 and pid is null order by id";
         Pager<ItemCategory> pagers = itemCategoryService.findBySqlRerturnEntity(sql);
+
         model.addAttribute("pagers",pagers);
         model.addAttribute("obj",itemCategory);
-        //System.out.println("就可获得尽快发货时刻");
+
         return "itemCategory/itemCategory";
     }
 
@@ -136,6 +137,7 @@ public class ItemCategoryController extends BaseController {
      */
     @RequestMapping("/exUpdate2")
     public String exUpdate2(ItemCategory itemCategory){
+
         //传过来二级的id和二级的名字
         itemCategoryService.updateById(itemCategory);
         return "redirect:/itemCategory/findBySql2.action?pid="+itemCategory.getPid();

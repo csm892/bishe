@@ -56,7 +56,7 @@ public class ItemController extends BaseController {
         List<ItemCategory> listBySqlReturnEntity = itemCategoryService.listBySqlReturnEntity(sql);
         //查出二级类目商品在传过去
         model.addAttribute("types",listBySqlReturnEntity);
-       return "item/add";
+        return "item/add";
     }
 
     /**
