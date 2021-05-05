@@ -53,10 +53,20 @@
     <div class="example2" style="width: 1200px;height: 490px;overflow: hidden;margin-left: 230px;">
         <ul>
             <li><img src="${ctx}/resource/images/a.webp" alt=""></li>
-            <li><img src="https://imgcps.jd.com/ling4/7125373/5Li65L2g5o6o6I2Q/57K-6YCJ5aW954mp/p-5bd8253082acdd181d02fa7f/9c79f419/cr/s/q.jpg" alt=""></li>
-            <li><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/175b22f0032803f8bdbd94590c8c6629.jpeg?thumb=1&w=1287&h=483&f=webp&q=90" alt=""></li>
-            <li><img src="${ctx}/resource/images/c.webp" alt=""></li>
-            <li><img src="${ctx}/resource/images/d.webp" alt=""></li>
+            <a href="${ctx}/item/shoplist">
+            <li>
+
+                <img src="https://imgcps.jd.com/ling4/7125373/5Li65L2g5o6o6I2Q/57K-6YCJ5aW954mp/p-5bd8253082acdd181d02fa7f/9c79f419/cr/s/q.jpg" alt="">
+
+            </li>
+            </a>
+            <a href="http://localhost:83/test1_war_exploded/item/view?id=81">
+            <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/175b22f0032803f8bdbd94590c8c6629.jpeg?thumb=1&w=1287&h=483&f=webp&q=90" alt="">
+            </li>
+            </a>
+
+
         </ul>
     </div>
     <script>
@@ -69,7 +79,11 @@
 <div class="width1200 center_yh hidden_yh">
     <div class="width100" style="height: 45px;line-height: 45px;border-bottom: 2px solid #dd4545; margin-top: 20px;">
         <font class="left_yh font20">折扣大促销</font>
-        <font class="left_yh font20">更多</font>
+
+      <div style="float:right;">
+          <a href="${ctx}/item/shoplist" style="color:red;">更多>
+          </a>
+      </div>
 
     </div>
     <div class="width100 hidden_yh" style="height: 480px;">
@@ -89,6 +103,12 @@
 <div class="width1200 center_yh hidden_yh">
     <div class="width100" style="height: 45px;line-height: 45px;border-bottom: 2px solid #dd4545; margin-top: 20px;">
         <font class="left_yh font20">热门商品</font>
+
+        <div style="float:right;">
+            <a href="${ctx}/item/shoplist" style="color:red;">更多>
+            </a>
+        </div>
+
     </div>
     <div class="width100 hidden_yh" style="height: 480px;">
         <div class="normalPic">
