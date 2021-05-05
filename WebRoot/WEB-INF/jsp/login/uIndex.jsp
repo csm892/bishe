@@ -69,6 +69,8 @@
 <div class="width1200 center_yh hidden_yh">
     <div class="width100" style="height: 45px;line-height: 45px;border-bottom: 2px solid #dd4545; margin-top: 20px;">
         <font class="left_yh font20">折扣大促销</font>
+        <font class="left_yh font20">更多</font>
+
     </div>
     <div class="width100 hidden_yh" style="height: 480px;">
         <div class="normalPic">
