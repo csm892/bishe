@@ -218,14 +218,24 @@
             data:JSON.stringify(arr),
             contentType:"application/json",
             success:function (result) {
+              //  alert(result)
+                var k= JSON.parse(result);
+               var code=k.code;
+                var total=k.total;
+                alert(code)
+                alert(total)
+
                 if(result.res == 0){
                     alert("请登录");
                     window.location.href="${ctx}/login/uLogin";
                 }else if(result.res == 2){
                     alert("请编辑地址");
                 }else{
-                    alert("购买成功");
-                    window.location.reload();
+                    //alert("购买成功！!！");
+
+                    self.location.href="${ctx}/login/uLogin";
+                    window.location.href="${ctx}/itemOrder/pay?code="+code+"&total="+total+"";
+
                 }
             }
         });

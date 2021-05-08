@@ -60,9 +60,9 @@
 
             </li>
             </a>
-            <a href="http://localhost:83/test1_war_exploded/item/view?id=81">
+            <a href="http://localhost:83/test1_war_exploded/item/view?id=44">
             <li>
-                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/175b22f0032803f8bdbd94590c8c6629.jpeg?thumb=1&w=1287&h=483&f=webp&q=90" alt="">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d8471a80a7dea49a3889386c16ebdc12.jpg?w=2452&h=920" alt="">
             </li>
             </a>
 

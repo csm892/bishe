@@ -1,8 +1,13 @@
 package com.javapandeng.controller;
 
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.alipay.api.AlipayClient;
+import com.alipay.api.DefaultAlipayClient;
+import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.javapandeng.base.BaseController;
+import com.javapandeng.config.AlipayConfig;
 import com.javapandeng.po.*;
 import com.javapandeng.service.*;
 import com.javapandeng.utils.Consts;
@@ -13,16 +18,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -100,20 +101,23 @@ public class ItemOrderController extends BaseController {
         return "itemOrder/my";
     }
 
-    @RequestMapping("/exAdd")
+    @RequestMapping(value = "/exAdd", produces = {"text/html;charset=UTF-8"})
     @ResponseBody
-    public String exAdd(@RequestBody List<CarDto> list, HttpServletRequest request) {
+    public String exAdd(@RequestBody List<CarDto> list, HttpServletRequest request, Model model) throws Exception {
+         String code="";
+       String total="";
+
         Object attribute = request.getSession().getAttribute(Consts.USERID);
         JSONObject js = new JSONObject();
         if (attribute == null) {
             js.put(Consts.RES, 0);
-            return js.toJSONString();
+           // return js.toJSONString();
         }
         Integer userId = Integer.valueOf(attribute.toString());
         User byId = userService.getById(userId);
         if (StringUtils.isEmpty(byId.getAddress())) {
             js.put(Consts.RES, 2);
-            return js.toJSONString();
+            //return js.toJSONString();
         }
 
         List<Integer> ids = new ArrayList<>();
@@ -124,11 +128,14 @@ public class ItemOrderController extends BaseController {
             to = to.add(new BigDecimal(load.getPrice()).multiply(new BigDecimal(c.getNum())));
         }
 
+
         ItemOrder order = new ItemOrder();
         order.setStatus(0);
         order.setCode(getOrderNo());
+        code=getOrderNo();
         order.setIsDelete(0);
         order.setTotal(to.setScale(2,BigDecimal.ROUND_HALF_UP).toString());
+        total=to.setScale(2,BigDecimal.ROUND_HALF_UP).toString();
         order.setUserId(userId);
         order.setAddTime(new Date());
         itemOrderService.insert(order);
@@ -153,8 +160,68 @@ public class ItemOrderController extends BaseController {
                 carService.deleteById(c.getId());
             }
         }
+        System.out.println(code);
+        System.out.println(total);
+        Pay pay=new Pay();
+        pay.setCode(code);
+        pay.setTotal(total);
+
+        model.addAttribute("pay",pay);
+        JSONArray jsonArray = new JSONArray();
         js.put(Consts.RES,1);
+        js.put("code",code);
+        js.put("total",total);
+
+
+        Map<String ,Object> map=new HashMap<String,Object>();
+        map.put("code",code);
+        map.put("total",total);
         return js.toJSONString();
+    }
+
+    @RequestMapping(value = "/pay", produces = {"text/html;charset=UTF-8"})
+
+    public String aliPay(@RequestParam(value="code", required=true) String code, @RequestParam(value="total", required=true) String total, HttpServletRequest request, Model model) throws Exception {
+
+//获得初始化的AlipayClient
+        AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
+
+        //设置请求参数
+        AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
+        alipayRequest.setReturnUrl(AlipayConfig.return_url);
+        alipayRequest.setNotifyUrl(AlipayConfig.notify_url);
+
+        //商户订单号，商户网站订单系统中唯一订单号，必填?a=2
+        String out_trade_no = code;
+        //付款金额，必填
+        String total_amount =total;
+        //订单名称，必填
+        String subject ="手机";
+        //商品描述，可空
+        String body = "测试";
+        alipayRequest.setBizContent("{\"out_trade_no\":\"" + out_trade_no + "\","
+                + "\"total_amount\":\"" + total_amount + "\","
+                + "\"subject\":\"" + subject + "\","
+                + "\"body\":\"" + body + "\","
+                + "\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}");
+
+        //若想给BizContent增加其他可选请求参数，以增加自定义超时时间参数timeout_express来举例说明
+        //alipayRequest.setBizContent("{\"out_trade_no\":\""+ out_trade_no +"\","
+        //		+ "\"total_amount\":\""+ total_amount +"\","
+        //		+ "\"subject\":\""+ subject +"\","
+        //		+ "\"body\":\""+ body +"\","
+        //		+ "\"timeout_express\":\"10m\","
+        //		+ "\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}");
+        //请求参数可查阅【电脑网站支付的API文档-alipay.trade.page.pay-请求参数】章节
+
+        //请求
+        String result = alipayClient.pageExecute(alipayRequest).getBody();
+        System.out.println(result);
+        model.addAttribute("result",result);
+
+        //输出
+        // out.println(result);
+        return "pay/test";
     }
 
 
