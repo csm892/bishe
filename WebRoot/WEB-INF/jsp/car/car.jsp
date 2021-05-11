@@ -222,8 +222,8 @@
                 var k= JSON.parse(result);
                var code=k.code;
                 var total=k.total;
-                alert(code)
-                alert(total)
+                //alert(code)
+                //alert(total)
 
                 if(result.res == 0){
                     alert("请登录");

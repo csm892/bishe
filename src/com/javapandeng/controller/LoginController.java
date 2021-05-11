@@ -114,6 +114,7 @@ public class LoginController extends BaseController {
         //折扣商品
         List<Item> zks = itemService.listBySqlReturnEntity("select * from item where isDelete=0 and zk is not null order by zk desc limit 0,10");
         model.addAttribute("zks",zks);
+        System.out.println(zks);
 
         //热销商品
         List<Item> rxs = itemService.listBySqlReturnEntity("select * from item where isDelete=0 order by gmNum desc limit 0,10");
