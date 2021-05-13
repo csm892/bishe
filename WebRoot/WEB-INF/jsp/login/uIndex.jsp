@@ -143,11 +143,48 @@
         });
     </script>
 </div>
-<!--折扣商品-->
+<!--秒杀商品-->
     <div>
 
     </div>
-<div class="width1200 center_yh hidden_yh">
+
+    <div class="width1200 center_yh hidden_yh">
+        <div class="width100" style="height: 45px;line-height: 45px;border-bottom: 2px solid #dd4545; margin-top: 20px;">
+            <font class="left_yh font20">秒杀</font>
+
+            <div style="float:right;">
+                <a href="${ctx}/item/shoplist" style="color:red;">更多>
+                </a>
+            </div>
+
+        </div>
+        <div class="width100 hidden_yh" style="height: 480px;">
+            <div class="normalPic">
+                <c:forEach items="${zks}" var="data" varStatus="l">
+                    <a href="${ctx}/item/view?id=${data.id}">
+
+
+                        <img src="${data.url1}" width="105" height="118" alt="" style="margin:0 auto">
+                        <h3 class="yihang c_33 font14 font100" style="padding-left: 10px;padding-right: 10px;">${data.name}</h3>
+
+                        <p class="center_yh block_yh hidden_yh" style="width: 202px;">
+                            <font class="left_yh red font16">￥${data.price}</font>
+                            <c:if test="${data.zk!=null}">
+                                <font class="right_yh font14" style="color: red">
+                                        ${data.zk}
+                                    <span style="color: grey">折</span>
+                                </font>
+                            </c:if>
+                        </p>
+                    </a>
+                </c:forEach>
+            </div>
+        </div>
+    </div>
+
+
+    <!--折扣商品-->
+    <div class="width1200 center_yh hidden_yh">
     <div class="width100" style="height: 45px;line-height: 45px;border-bottom: 2px solid #dd4545; margin-top: 20px;">
         <font class="left_yh font20">折扣大促销</font>
 

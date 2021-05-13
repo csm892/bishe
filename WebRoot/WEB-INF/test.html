@@ -1,156 +1,156 @@
+<! doctype html>
 <html>
-<head lang="en">
+<head lang="zh-CN">
     <meta charset="UTF-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--视窗，宽度默认设备宽度,开始缩放1倍-->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/normalize/8.0.1/normalize.css">
+    <!---标准格式-->
+    <link rel="stylesheet" href="text.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <style>
-        * {
-            margin:0px;
-            padding:0px;
+        *{
+            -webkit-box-sizing:border-box;
+            box-sizing:border-box;
         }
-        #benner {
-            width:790px;
-            height:340px;
-            margin-left:15%;
-            margin-top:10px;
+        body{
+            font-size:14px;
+            color:#444;
         }
-        #benner .imga {
-            display:none;
-        }
-        #benner .img .active {
+        .container{
             display:block;
-        }
-        #benner .title {
-            width:;
-            height:16px;
-            background-color:rgba(226,226,226,0.6);
-            border-radius:30px;
-            margin-top:-35px;
+            max-width:1240px;
+            margin:0 auto;
+        }/*布局：页面设置宽度并居中*/
+        .left{
             float:left;
-            margin-left:40%;
-            margin-right:40%;
-            padding:6px 0px 0px 10px;
-            position:relative;
+        }/*控制浮动*/
+        .right{
+            float:right;
+        }/*控制浮动*/
+        .clear-float:after,
+        .clear-float:before{
+            content:" ";
+            display:block;
+            clear:both;
+        }/*这个类的第一个元素与最后一个元素清除浮动*/
+        .top-nav .border{
+            border:1px solid #000;
+            width:100%;
+            height:35px;
+            background:rgba(0,0,0,0.8);
+            color:#ffffff99;
         }
-        #benner .title .nr {
-            list-style:none;
-            width:10px;
-            height:10px;
-            background:#fff;
-            border-radius:10px;
-            float:left;
-            margin-right:10px;
-            margin-bottom:0px;
+        .top-nav .border .nav{
+            margin-top:8px;
+            font-size:12px;
         }
-        #benner .title .active {
-            background:#db192a;
+        .logo{
+            width:55px;
+            height:55px;
         }
+        .header .picture{
+            border:1px solid #fff;
+            padding:20px 50px 20px 0;
+        }
+        .header .container{
+            border:1px solid #fff;
+            width:100%;
+            height:100px;
+        }
+        .header .container .classify{
+            font-size:17px;
+            border:1px solid #fff;
+            padding:40px 0;
+        }
+        .header .container .classify span{
+            margin-left:14px;
+        }
+        .header .container input{
+            width:200px;
+            height:50px;
+        }
+        .header .container button{
+            height:50px;
+            width:50px;
+            margin:0;
+        }
+        .header .container .right{
+            font-size:14px;
+            border:1px solid #fff;
+            padding:30px 0 0 0;
+        }
+        .main-promote .time{
+            font-size:18px;
+            border:1px solid #fff;
+            padding:26px 0;
+            background:rgba(0,0,0,0.8);
+            color:#fff;
+        }
+        .main-promote .time span{
+            margin:0 50px;
+        }
+        .main-promote table tr th{
+            border:1px solid #000;
+            width:420px;
+            height:200px;
+            background:rgba(0,0,0,0.1);
+        }
+        .main-promote table{
+            margin-top:10px;
+            margin-bottom:100px;
+        }
+
     </style>
+    <title>小米商城</title>
 </head>
-<body>
-<div id="benner">
-    <div class="img">
-        <img src="http://www.jq22.com/img/cs/500x300-1.png" class="imga active">
-        <img src="http://www.jq22.com/img/cs/500x300-2.png" class="imga">
-        <img src="http://www.jq22.com/img/cs/500x300-3.png" class="imga">
-        <img src="http://www.jq22.com/img/cs/500x300-4.png" class="imga">
-        <img src="http://www.jq22.com/img/cs/500x300-5.png" class="imga">
-        <img src="http://www.jq22.com/img/cs/500x300-6.png" class="imga">
-        <img src="http://www.jq22.com/img/cs/500x300-7.png" class="imga">
+<body class="clear-float">
+
+
+<div class="main-promote">
+    <div class="container">
+        <div class="time">
+            <span>08:00 即将开始</span>
+            <span>10:00 即将开始</span>
+            <span>14:00 即将开始</span>
+            <span>20:00 即将开始</span>
+            <span>22:00 即将开始</span>
+        </div>
+        <table>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </table>
     </div>
-    <ul class="title">
-        <li class="nr active"></li>
-        <li class="nr"></li>
-        <li class="nr"></li>
-        <li class="nr"></li>
-        <li class="nr"></li>
-        <li class="nr"></li>
-        <li class="nr"></li>
-    </ul>
+</div>
+<div class="container">*小米秒杀活动规则：
+    <br>1.秒杀商品是否参加活动、最终秒杀成功的商品，以订单结算页显示为准，活动包括但不限于优惠券、赠品、满减、满赠等；<br>
+    2.秒杀商品数量有限，活动以下单支付成功为准，请加入购物车后尽快下单支付;<br>
+    3.秒杀价不含运费，最终以订单结算页价格为准；<br>
+    4.订单中商品的数量、颜色、型号等，以订单结算页为准。<br>
+    温馨提示：因可能存在系统缓存、页面更新导致价格变动异常等不确定性情况出现，如您发现活动商品标价或促销信息有异常，请您立即联系小米客服，以便我们及时补正。
 </div>
 </body>
-<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-
-<script>
-    window.onload = function() {
-        benner('#benner', '.nr', '.imga')
-
-        function benner(parent, controller, mod) {
-
-            var num = 0;
-            var controller = $(controller);
-            var mod = $(mod);
-            var benner = $(parent);
-            var autoPlayTime = 1500;
-            var imgNum = mod.length - 1;
-            var auto;
-
-            autoPlay();
-            //根据传进来的名字获取这个名字所对应的对象
-            function $(name) {
-                if (name[0] == '#') {
-                    return document.getElementById(name.substr(1));
-                } else if (name[0] == '.') {
-                    return document.getElementsByClassName(name.substr(1));
-                } else {
-                    return document.getElementsByTagName(name);
-                }
-            }
-
-            //实现鼠标划过圆点,变化图片的效果
-            //function change(controller, mod){
-            //遍历控制器,绑定鼠标划过事件
-            for (var i = 0; i < controller.length; i++) {
-                //给控制器加个索引,并把i值赋值给索引
-                controller[i].index = i;
-                //给所有的控制器都加划过事件
-                controller[i].onmouseover = function() {
-                    for (var j = 0; j < controller.length; j++) {
-                        //将所有控制器改为默认样式
-                        controller[j].className = 'nr';
-                    }
-                    //改变所选的控制器样式
-                    this.className = 'nr active';
-                    //将模型改为默认样式
-                    for (var x = 0; x < mod.length; x++) {
-                        mod[x].className = 'imga';
-                    }
-                    //改变所选控制器对应的模型的样式
-                    mod[this.index].className = 'imga active';
-                }
-            }
-            //}
-            //绑定鼠标移入,暂停播放图片
-            benner.onmouseover = function() {
-                clearInterval(auto);
-            }
-            //绑定鼠标离开,继续播放
-            benner.onmouseleave = function() {
-                autoPlay();
-            }
-            //指定播放那个图片
-            function play(num) {
-                for (var j = 0; j < controller.length; j++) {
-                    controller[j].className = 'nr';
-                }
-                controller[num].className = 'nr active';
-                for (var x = 0; x < mod.length; x++) {
-                    mod[x].className = 'imga';
-                }
-                mod[num].className = 'imga active';
-            }
-            //自动播放
-            function autoPlay() {
-                auto = setInterval(function() {
-                    if (num > imgNum) {
-                        num = 0;
-                    }
-                    play(num);
-                    num++;
-                }, autoPlayTime)
-            }
-        }
-
-    }
-</script>
 </html>
-
