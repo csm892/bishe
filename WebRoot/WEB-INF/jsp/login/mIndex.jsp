@@ -31,9 +31,12 @@
             <li><a href="${ctx}/itemCategory/findBySql" target="right"><span class="icon-caret-right"></span>类目管理</a> </li>
             <li><a href="${ctx}/user/findBySql" target="right"><span class="icon-caret-right"></span>用户管理</a> </li>
             <li><a href="${ctx}/item/findBySql" target="right"><span class="icon-caret-right"></span>商品管理</a> </li>
+            <li><a href="${ctx}/seckill/findBySql" target="right"><span class="icon-caret-right"></span>秒杀管理</a> </li>
+
             <li><a href="${ctx}/itemOrder/findBySql" target="right"><span class="icon-caret-right"></span>订单管理</a> </li>
             <li><a href="${ctx}/news/findBySql" target="right"><span class="icon-caret-right"></span>公告管理</a> </li>
             <li><a href="${ctx}/message/findBySql" target="right"><span class="icon-caret-right"></span>留言管理</a> </li>
+
         </ul>
     </div>
     <ul class="bread">

@@ -6,8 +6,18 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 	<!-- 配置别名 -->
 	<settings>  
-        <setting name="logImpl" value="LOG4J"/>  
-    </settings> 
+        <setting name="logImpl" value="LOG4J"/>
+
+		<!--  使用jdbc的getGeneratedKeys获取数据库自增主键  -->
+		<setting name="useGeneratedKeys" value="true"/>
+		<!--  使用列别名替换列名
+                select name as title from table
+          -->
+		<setting name="useColumnLabel" value="true"/>
+		<!--  开启驼峰命名规范：Table(create_time)->Entity(createTime)-->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+
+	</settings>
 	<typeAliases>
 		<!-- 批量扫描别名 -->
 		<package name="com.javapandeng.po"/>
@@ -42,4 +52,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	        <property name="returnPageInfo" value="check"/>
 	    </plugin>
 	</plugins>
+
+
 </configuration>

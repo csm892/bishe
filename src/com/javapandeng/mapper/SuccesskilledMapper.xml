@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--头：https://mybatis.org/mybatis-3/configuration.html#mappers-->
+<mapper namespace="com.javapandeng.mapper.SuccessKilledMapper">
+    <insert id="insertSuccessKilled">
+        <!--主键冲突 报错->ignore-->
+        insert ignore into success_killed(seckill_id,user_phone,create_time,state)
+        values (#{seckillId},#{userPhone},#{createTime},0)
+    </insert>
+    <select id="queryByIdWithSeckill" resultType="SuccessKilled">
+        <!-- 如何告诉MyBatis把结果映射到SuccessKilled同时映射seckill属性 successkill里面的SecKill-->
+        <!-- 可以自由控制SQL-->
+        select
+        sk.seckill_id,
+        sk.user_phone,
+        sk.create_time,
+        sk.state,
+        s.seckill_id as "seckill.seckill_id",
+        s.name as "seckill.name",
+        s.start_time as "seckill.start_time",
+        s.end_time as "seckill.end_time",
+        s.create_time as "seckill.create_time"
+        from success_killed sk
+        inner join seckill s on sk.seckill_id = s.seckill_id
+        where  sk.seckill_id = #{seckillId} and sk.user_phone = #{userPhone}
+    </select>
+
+    <resultMap id="ResultMapScDto" type="com.javapandeng.po.SuccessKilled">
+        <result property="seckillId" column="seckill_id" jdbcType="INTEGER"/>
+        <result property="userPhone" column="user_phone" jdbcType="INTEGER"/>
+
+        <result property="createTime" column="create_time" jdbcType="INTEGER"/>
+        <result property="state" column="state" jdbcType="INTEGER"/>
+        <association property="user" column="user_phone" select="com.javapandeng.mapper.UserMapper.load"/>
+        <association property="item" column="seckill_id" select="com.javapandeng.mapper.ItemMapper.load"/>
+
+    </resultMap>
+
+    <!-- 查询列表返回实体-->
+    <select id="listBySqlReturnEntity" resultMap="ResultMapScDto">
+        ${sql}
+    </select>
+</mapper>

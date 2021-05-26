@@ -159,23 +159,27 @@
 
         </div>
         <div class="width100 hidden_yh" style="height: 480px;">
+           <div>
+               <img src="https://cdn.pinduoduo.com/upload/home/img/index/seckill_v2.jpg" style="height: 200;width: 1170px">
+           </div>
             <div class="normalPic">
-                <c:forEach items="${zks}" var="data" varStatus="l">
-                    <a href="${ctx}/item/view?id=${data.id}">
+                <c:forEach items="${seckillList}" var="data" varStatus="l">
+                    <a href="${ctx}/seckill/view?id=${data.item.id}">
 
+                        <font class="left_yh red font16">秒杀价</font>
+                        <img src="${data.item.url1}" width="105" height="118" alt="" style="margin:0 auto">
 
-                        <img src="${data.url1}" width="105" height="118" alt="" style="margin:0 auto">
-                        <h3 class="yihang c_33 font14 font100" style="padding-left: 10px;padding-right: 10px;">${data.name}</h3>
-
+                        <h3 class="yihang c_33 font14 font100" style="padding-left: 10px;padding-right: 10px;">${data.item.name}</h3>
+                        <font class="right_yh red font16">仅剩余${data.number}件</font>
                         <p class="center_yh block_yh hidden_yh" style="width: 202px;">
                             <font class="left_yh red font16">￥${data.price}</font>
-                            <c:if test="${data.zk!=null}">
-                                <font class="right_yh font14" style="color: red">
-                                        ${data.zk}
-                                    <span style="color: grey">折</span>
-                                </font>
-                            </c:if>
+                            <font class="right_yh font14" style="color: grey">
+                                原价:￥${data.item.price}
+
+                            </font>
                         </p>
+
+
                     </a>
                 </c:forEach>
             </div>
@@ -255,8 +259,9 @@
     <%@include file="/common/ufooter.jsp"%>
 </body>
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-
+<!--首页轮播-->
 <script>
+
     window.onload = function() {
         benner('#benner', '.nr', '.imga')
 

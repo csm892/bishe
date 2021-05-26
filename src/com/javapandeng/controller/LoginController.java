@@ -7,11 +7,8 @@ import com.javapandeng.base.BaseController;
 
 
 import com.javapandeng.po.*;
-import com.javapandeng.service.ItemCategoryService;
-import com.javapandeng.service.ItemService;
-import com.javapandeng.service.ManageService;
+import com.javapandeng.service.*;
 
-import com.javapandeng.service.UserService;
 import com.javapandeng.utils.Consts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,6 +42,9 @@ public class LoginController extends BaseController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private SeckillService seckillService;
 
 
 
@@ -93,14 +93,6 @@ public class LoginController extends BaseController {
         List<CategoryDto> list = new ArrayList<>();
         if(!CollectionUtils.isEmpty(fatherList)){
             for(ItemCategory ic:fatherList){
-
-                /**
-                 *  CategoryDto
-                 *
-                 *  private ItemCategory father;
-                 *
-                 *  private List<ItemCategory> childrens;
-                 */
                 CategoryDto dto = new CategoryDto();
                 dto.setFather(ic);
                 //查询二级类目
@@ -120,6 +112,13 @@ public class LoginController extends BaseController {
         List<Item> rxs = itemService.listBySqlReturnEntity("select * from item where isDelete=0 order by gmNum desc limit 0,10");
         model.addAttribute("rxs",rxs);
 
+        /**
+         * 秒杀列表
+         */
+
+        String sql = "select * from seckill";
+        List<Seckill> seckillList = seckillService.listBySqlReturnEntity(sql);
+        model.addAttribute("seckillList", seckillList);
         return "login/uIndex";
     }
 
@@ -127,15 +126,28 @@ public class LoginController extends BaseController {
     /**普通用户注册*/
     @RequestMapping("/res")
     public String res(){
-        return "login/res";
+        return "login/res2";
     }
 
 
     /**执行普通用户注册*/
     @RequestMapping("/toRes")
+    @ResponseBody
     public String toRes(User u){
-        userService.insert(u);
-        return "login/uLogin";
+        JSONObject json = new JSONObject();
+        User byEntity = userService.getByEntity(u);
+        System.out.println(byEntity);
+        System.out.println("-----------------------------------");
+        if (byEntity==null){
+            userService.insert(u);
+            json.put("message", "2");
+
+        }else {
+
+            json.put("message", "1");
+        }
+
+        return json.toJSONString();
     }
 
 

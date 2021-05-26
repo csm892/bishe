@@ -49,8 +49,7 @@
                 <div class="xzSpIn">
                     <h3 class="font16 c_33 font100">${data.item.name}</h3>
                 </div>
-            </div>
-            <div class="xzJg">
+            </div><div class="xzJg">
                 ￥<font>${data.price}</font>
             </div>
             <div class="xzSl">
@@ -68,6 +67,7 @@
             </div>
         </div>
     </c:forEach>
+
 </div>
 <div class="width1198 center_yh" style="height: 60px;background: #f0f0f0;border:1px solid #ddd;margin-top:40px;">
     <div class="center_yh hidden_yh" style="width: 1178px;height: 60px;margin-left: 20px;">
@@ -78,7 +78,13 @@
             <div class="sXd2">合计（不含运费）：￥<font style="color: #cb1c20" id="zjJg">0</font> </div>
             <a href="javascript:void(0)" class="ifJs" onclick="ifJs()">结算</a>
         </div>
+
     </div>
+    <div class="sXd2" style="float: right">收货地址：<font style="color: #cb1c20;" >${user.address}</font> </div>
+
+    <div class="sXd2" style="float: right">收货人：<font style="color: #cb1c20;" >${user.realName}</font> </div>
+
+
 </div>
 <script>
     //总的子项数量
@@ -226,7 +232,7 @@
                 //alert(total)
 
                 if(result.res == 0){
-                    alert("请登录");
+                    alert("请登录");window.location.href="${ctx}/login/uLogin";
                     window.location.href="${ctx}/login/uLogin";
                 }else if(result.res == 2){
                     alert("请编辑地址");

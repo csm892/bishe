@@ -61,7 +61,7 @@ td,th{padding:0;}
 .button.bg-main,.button.bg-sub,.button.bg-dot,.button.bg-black,.button.bg-gray,.button.bg-red,.button.bg-yellow,.button.bg-blue,.button.bg-green{color:#fff;}
 .layout{width:100%;}
 .container,.container-layout{margin:0 auto;padding:0 10px;}
-@media (min-width:760px){.container{width:760px;}}
+@media (min-width:760px){.container{width:700px;}}
 @media (min-width:1000px){.container{width:1000px;}}
 @media (min-width:1200px){.container{width:1200px;}}
 .line{margin:0;padding:0;}

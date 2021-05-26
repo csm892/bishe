@@ -24,10 +24,8 @@ public class ItemCategoryController extends BaseController {
     public String findBySql(Model model, ItemCategory itemCategory){
         String sql = "select * from item_category where isDelete = 0 and pid is null order by id";
         Pager<ItemCategory> pagers = itemCategoryService.findBySqlRerturnEntity(sql);
-
         model.addAttribute("pagers",pagers);
         model.addAttribute("obj",itemCategory);
-
         return "itemCategory/itemCategory";
     }
 

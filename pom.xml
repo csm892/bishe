@@ -319,6 +319,12 @@
             <artifactId>ueditor</artifactId>
             <version>1.4.3.3</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
     <build>
@@ -329,7 +335,10 @@
                 <directory>${basedir}/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
+
                 </excludes>
+
+
             </resource>
         </resources>
         <plugins>

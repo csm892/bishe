@@ -198,7 +198,7 @@ public class ItemOrderController extends BaseController {
         //订单名称，必填
         String subject ="手机";
         //商品描述，可空
-        String body = "测试";
+        String body = "畅购";
         alipayRequest.setBizContent("{\"out_trade_no\":\"" + out_trade_no + "\","
                 + "\"total_amount\":\"" + total_amount + "\","
                 + "\"subject\":\"" + subject + "\","

@@ -34,6 +34,12 @@
             </p>
             <input type="submit" value="提交" class="ipt_tj" style="width: 295px;height: 44px;margin-left: 500px;">
         </form>
+        <div class="tcenter width100" style="margin-top: 36px;">
+            <a href="${ctx}/login/uLogin"  style="color: grey">去登录</a>
+        </div>
+        <div class="tcenter width100" style="margin-top: 36px;">
+            <a href="${ctx}/login/uIndex" style="color: grey">返回首页</a>
+        </div>
     </div>
 </div>
 <%@include file="/common/ufooter.jsp"%>

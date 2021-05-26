@@ -30,6 +30,7 @@
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
+    <!-- http://localhost:83/test1_war_exploded/resource/js/data/1.json访问静态资源 -->
     <mvc:resources mapping="/resource/**" location="/resource/"/>
 
 	<!--spring mvc的文件上传模块是可插拔的，默认没有启用，只要在 spring mvc 容器中实例化 MultipartResolver 接口的实现类即可，

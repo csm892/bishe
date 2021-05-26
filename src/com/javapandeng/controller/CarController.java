@@ -3,8 +3,10 @@ package com.javapandeng.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.javapandeng.po.Item;
 import com.javapandeng.po.Car;
+import com.javapandeng.po.User;
 import com.javapandeng.service.ItemService;
 import com.javapandeng.service.CarService;
+import com.javapandeng.service.UserService;
 import com.javapandeng.utils.Consts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +31,9 @@ public class CarController {
 
     @Autowired
     private ItemService itemService;
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/exAdd")
     @ResponseBody
@@ -76,9 +81,13 @@ public class CarController {
             return "redirect:/login/toLogin";
         }
         Integer userId = Integer.valueOf(attribute.toString());
+        User user= userService.load(userId);
         String sql = "select * from car where user_id="+userId+" order by id desc";
         List<Car> list = carService.listBySqlReturnEntity(sql);
         model.addAttribute("list",list);
+
+        model.addAttribute("user",user);
+
         return "car/car";
     }
 

@@ -41,7 +41,7 @@
             <div style="width: 938px;border:1px solid #ddd;background: #fff;">
                 <div class="width100 hidden_yh" style="height: 74px;line-height: 74px;background: #f5f8fa;border-bottom: 1px solid #ddd;" id="navLt">
                     <span class="left_yh font24 width20 tcenter cursor onHover onorange slect">全部订单（${fn:length(all)}）</span>
-                    <span class="left_yh font24 width20 tcenter cursor onHover onorange">已取消（${fn:length(yqx)}）</span>
+                    <!-- <span class="left_yh font24 width20 tcenter cursor onHover onorange">已取消（${fn:length(yqx)}）</span>-->
                     <span class="left_yh font24 width20 tcenter cursor onHover onorange">待发货（${fn:length(dfh)}）</span>
                     <span class="left_yh font24 width20 tcenter cursor onHover onorange">待收货（${fn:length(dsh)}）</span>
                     <span class="left_yh font24 width20 tcenter cursor onHover onorange">已收货（${fn:length(ysh)}）</span>
@@ -63,7 +63,7 @@
                                     <div class="left_yh" style="width: 580px;">
                                         <h3 class="font18 c_33 font100">${chil.item.name}</h3>
                                         <p class="c_66 font16" style="margin-top: 16px;">折扣：${chil.item.zk}</p>
-                                        <p class="red" style="margin-top: 10px;">￥${chil.item.price}</p>
+                                        <p class="red" style="margin-top: 10px;">原价：￥${chil.item.price}</p>
                                     </div>
                                     <div class="right_yh">
                                         <c:if test="${data.status==3}">
@@ -78,9 +78,9 @@
                                 <font class="font24">总金额</font>
                                 <font class="font24 red">￥${data.total}</font>
                                 <c:if test="${data.status==0}">
-                                    <a href="${ctx}/itemOrder/qx?id=${data.id}" class="c_33 onHover font20 onorange right_yh" style="margin-top: 10px;padding-right: 6px;">
-                                        取消订单
-                                    </a>
+                                    <span class="c_33 onHover font20 onorange right_yh" style="margin-top: 10px;padding-right: 6px;">
+                                        已付款
+                                    </span>
                                 </c:if>
                                 <c:if test="${data.status==1}">
                                     <a href="#" class="c_33 onHover font20 onorange right_yh" style="margin-top: 10px;padding-right: 6px;">
@@ -102,7 +102,7 @@
                     </c:forEach>
                 </div>
 
-                <!--已取消-->
+                <!--已取消
                 <div class="allGoods width100 hidden_yh hhD" style="display: none;">
                     <c:forEach items="${yqx}" var="data" varStatus="l">
                         <div class="width100 hidden_yh">
@@ -156,7 +156,7 @@
                             </div>
                         </div>
                     </c:forEach>
-                </div>
+                </div>-->
 
 
                 <!--待发货-->
@@ -191,9 +191,9 @@
                                 <font class="font24">总金额</font>
                                 <font class="font24 red">￥${data.total}</font>
                                 <c:if test="${data.status==0}">
-                                    <a href="${ctx}/itemOrder/qx?id=${data.id}" class="c_33 onHover font20 onorange right_yh" style="margin-top: 10px;padding-right: 6px;">
-                                        取消订单
-                                    </a>
+                                    <span  class="c_33 onHover font20 onorange right_yh" style="margin-top: 10px;padding-right: 6px;">
+                                        已付款
+                                    </span>
                                 </c:if>
                                 <c:if test="${data.status==1}">
                                     <a href="#" class="c_33 onHover font20 onorange right_yh" style="margin-top: 10px;padding-right: 6px;">
@@ -248,9 +248,9 @@
                                 <font class="font24">总金额</font>
                                 <font class="font24 red">￥${data.total}</font>
                                 <c:if test="${data.status==0}">
-                                    <a href="${ctx}/itemOrder/qx?id=${data.id}" class="c_33 onHover font20 onorange right_yh" style="margin-top: 10px;padding-right: 6px;">
+                                    <span class="c_33 onHover font20 onorange right_yh" style="margin-top: 10px;padding-right: 6px;">
                                         取消订单
-                                    </a>
+                                    </span>
                                 </c:if>
                                 <c:if test="${data.status==1}">
                                     <a href="#" class="c_33 onHover font20 onorange right_yh" style="margin-top: 10px;padding-right: 6px;">
@@ -304,9 +304,9 @@
                                 <font class="font24">总金额</font>
                                 <font class="font24 red">￥${data.total}</font>
                                 <c:if test="${data.status==0}">
-                                    <a href="${ctx}/itemOrder/qx?id=${data.id}" class="c_33 onHover font20 onorange right_yh" style="margin-top: 10px;padding-right: 6px;">
+                                    <span class="c_33 onHover font20 onorange right_yh" style="margin-top: 10px;padding-right: 6px;">
                                         取消订单
-                                    </a>
+                                    </span>
                                 </c:if>
                                 <c:if test="${data.status==1}">
                                     <a href="#" class="c_33 onHover font20 onorange right_yh" style="margin-top: 10px;padding-right: 6px;">
